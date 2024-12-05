@@ -1,16 +1,16 @@
 'use client';
 import React from 'react';
 import IntroSwiper from './intro';
-import News from './news';
-import { mockNews } from '@/data/newsData';
+import { mockProducts } from '@/data/productsData';
 import Header from '@/components/layout/header/Header';
+import Products from './products';
 
 const Home = () => {
   return (
     <div id="root">
       <IntroSwiper />
       {/* news */}
-      <News mockNews={mockNews} />
+      <Products mockProducts={mockProducts} />
       {/* stock */}
     </div>
   );

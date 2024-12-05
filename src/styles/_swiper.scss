@@ -1,9 +1,9 @@
 .intro-swiper {
   .swiper {
-    padding-top: 10px;
+    // padding-top: 10px;
     background: #000;
     width: 100%;
-    height: 90vh;
+    height: 70vh;
   }
 
   .swiper-slide {
@@ -14,8 +14,8 @@
 
   .swiper-slide img {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: auto;
+    max-height: 100%;
     object-fit: cover;
   }
 
@@ -34,7 +34,7 @@
     .swiper-vertical > .swiper-pagination-bullets,
     .swiper-pagination-vertical.swiper-pagination-bullets {
       right: 20px;
-      top: 95%;
+      top: 90%;
     }
   }
 

@@ -1,0 +1,92 @@
+export const mockProducts = [
+  {
+    title: '와니야마 신짱',
+    content: 'ワニ山さんしんちゃん',
+    imageUrl: '/images/pattern/main/products/1_shin.png',
+    price: '￦165,000',
+  },
+  {
+    title: '부리부리 대마왕',
+    content: 'ぶりぶりざえもん',
+    imageUrl: '/images/pattern/main/products/2_buriburi.png',
+    price: '￦165,000',
+  },
+  {
+    title: '그레이트 마징가',
+    content: 'グレートマジンガー',
+    imageUrl: '/images/pattern/main/products/3_mazinga.png',
+    price: '￦184,800',
+  },
+  {
+    title: '닌자 핫토리군',
+    content: '忍者ハットリくん',
+    imageUrl: '/images/pattern/main/products/4_hottory.png',
+    price: '￦165,000',
+  },
+  {
+    title: '페코',
+    content: 'ペコちゃん',
+    imageUrl: '/images/pattern/main/products/5_peko.png',
+    price: '￦242,000',
+  },
+  {
+    title: 'MY FIRST BE@RBRICK',
+    content: '1st Color Clear Ver. ',
+    imageUrl: '/images/pattern/main/products/6_first.png',
+    price: '￦143,000',
+  },
+  {
+    title: '외로운 유령들',
+    content: 'ロンサームゴースト',
+    imageUrl: '/images/pattern/main/products/7_ghost.png',
+    price: '￦165,000',
+  },
+  {
+    title: '오징어 게임',
+    content: 'イカゲーム',
+    imageUrl: '/images/pattern/main/products/8_squid.png',
+    price: '￦165,000',
+  },
+  {
+    title: '레토쿠마',
+    content: 'レトクマ',
+    imageUrl: '/images/pattern/main/products/9_letto.png',
+    price: '￦26,000',
+  },
+  {
+    title: '블루투스 스피커',
+    content: 'パワフルサウンド',
+    imageUrl: '/images/pattern/main/products/10_audio.png',
+    price: '￦770,000',
+  },
+  {
+    title: '고질라',
+    content: 'ゴジラ',
+    imageUrl: '/images/pattern/main/products/11_gozila.png',
+    price: '￦29,700',
+  },
+  {
+    title: '아이언맨',
+    content: ' IRON MAN MARK85',
+    imageUrl: '/images/pattern/main/products/12_iron.png',
+    price: '￦220,000',
+  },
+  {
+    title: '스파이더맨 블랙',
+    content: 'SPIDER-MAN BLACK',
+    imageUrl: '/images/pattern/main/products/13_spider.png',
+    price: '￦176,000',
+  },
+  {
+    title: '미니언즈',
+    content: 'ミニオンズ',
+    imageUrl: '/images/pattern/main/products/14_bob.png',
+    price: '￦195,800',
+  },
+  {
+    title: '미키마우스',
+    content: 'ミッキーマウス',
+    imageUrl: '/images/pattern/main/products/15_mickey.png',
+    price: '￦253,000',
+  },
+];
