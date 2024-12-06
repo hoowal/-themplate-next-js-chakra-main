@@ -9,9 +9,8 @@ const Home = () => {
   return (
     <div id="root">
       <IntroSwiper />
-      {/* news */}
+
       <Products mockProducts={mockProducts} />
-      {/* stock */}
     </div>
   );
 };

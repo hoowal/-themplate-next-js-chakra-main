@@ -1,126 +1,70 @@
 'use client';
-import React, { useRef, useState, useEffect } from 'react';
-// Import Swiper React components
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-
-// import required modules
 import { Mousewheel, Pagination } from 'swiper/modules';
+import introData from '@/data/introData';
 
 export default function IntroSwiper() {
+  // 슬라이드 인덱스를 추적하기 위한 state
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  console.log(`${introData[currentSlide]?.id}.png`);
   return (
-    <div className="w-full relative intro-swiper">
+    <div>
       <div
-        className="pt-10 md:pt-15 bg-black text-white text-center font-extrabold 
-      text-5xl md:text-6xl lg:text-7xl"
+        className={`w-full relative intro-swiper bg-center bg-[url('/images/pattern/main/bg_mobile/bg_m_${introData[currentSlide]?.id}.png')] lg:bg-[url('/images/pattern/main/bg_pc/bg_pc_${introData[currentSlide]?.id}.png')]`}
       >
-        NEW ARRIVAL
-      </div>
-      <Swiper
-        direction={'vertical'}
-        slidesPerView={1}
-        spaceBetween={0}
-        mousewheel={true}
-        speed={0}
-        loop={true}
-        allowTouchMove={true}
-        pagination={{
-          clickable: true,
-          renderBullet: (index, className) => {
-            // 이미지 URL을 설정하고, 각 페이지 버튼에 적용
-            const images = [
-              '/images/pattern/main/head/1.png',
-              '/images/pattern/main/head/2.png',
-              '/images/pattern/main/head/3.png',
-              '/images/pattern/main/head/4.png',
-              '/images/pattern/main/head/5.png',
-              '/images/pattern/main/head/6.png',
-              '/images/pattern/main/head/7.png',
-            ];
-            return `
+        {/* <div
+        className={`w-full relative intro-swiper bg-center bg-[url('/images/pattern/main/bg_mobile/bg_m_1.png')] lg:bg-[url('/images/pattern/main/bg_pc/bg_pc_1.png')]`}
+      > */}
+        <div
+          className="pt-10 md:pt-15 bg-tranperant text-white text-center font-extrabold 
+      text-5xl md:text-6xl lg:text-7xl"
+        >
+          NEW ARRIVAL
+        </div>
+        <Swiper
+          direction={'vertical'}
+          slidesPerView={1}
+          spaceBetween={0}
+          mousewheel={true}
+          speed={0}
+          loop={true}
+          allowTouchMove={true}
+          pagination={{
+            clickable: true,
+            renderBullet: (index, className) => {
+              const bulletImages = introData.map((item) => item.bulletImage);
+              return `
               <span class="${className}">
                 <img
-                src="${images[index]}" alt="slide ${index + 1}" />
+                src="${bulletImages[index]}" alt="slide ${index + 1}" />
               </span>
             `;
-          },
-        }}
-        modules={[Mousewheel, Pagination]}
-        className="mySwiper"
-      >
-        {[1, 2, 3, 4, 5, 6].map((num) => (
-          <SwiperSlide key={num} className="relative">
-            <div
-              className="
-              lg:hidden absolute w-full h-full
-              flex items-center justify-center"
-            >
-              <img src={`/images/pattern/main/info_mobile/${num}.png`} />
-            </div>
-            <div
-              className="hidden overflow-hidden
-            lg:flex absolute w-full h-full
-             items-center justify-center
-            "
-            >
-              <p
-                className="pt-32
-                text-white
-              pl-10 top-64 text-left
-              "
-              >
-                ※数量限定販売となります。 <br />
-                万が一品切れの場合はご容赦ください。
-                <br />
-                『MEDICOM TOY EXHIBITION 2024』 <br />
-                会場：スペース オー［表参道ヒルズ 本館地下3F］ <br />
-                場所：東京都渋谷区神宮前4-12-10 期<br />
-                間：2024年7月23日(火)～2024年7月28日(日)
-                <br />
-                ※会期中無休 時間：11:00～20:00
-                <br />
-                ※入場は閉場30分前まで
-              </p>
-              <img src={`/images/pattern/main/info_pc/${num}.png`} />
-              <p
-                className="pb-48
-               text-white
-              pr-10 top-20 text-right
-              "
-              >
-                ※数量限定販売となります。 <br />
-                万が一品切れの場合はご容赦ください。
-                <br />
-                『MEDICOM TOY EXHIBITION 2024』 <br />
-                会場：スペース オー［表参道ヒルズ 本館地下3F］ <br />
-                場所：東京都渋谷区神宮前4-12-10 期<br />
-                間：2024年7月23日(火)～2024年7月28日(日)
-                <br />
-                ※会期中無休 時間：11:00～20:00
-                <br />
-                ※入場は閉場30分前まで
-              </p>
-            </div>
-          </SwiperSlide>
-        ))}
-
-        {/* {[1, 2, 3, 4, 5, 6].map((num) => (
-          <SwiperSlide key={num} className="relative">
-            <img
-              src=""
-              className={`absolute object-cover bg-cover bg-center w-full h-full 
-        lg:hidden bg-[url('/images/pattern/main/info_mobile/${num}.png')] max-w-xl`}
-            />
-            <img
-              className={`absolute bg-cover bg-center w-full h-full aspect-[16/9] 
-        lg:bg-[url('/images/pattern/main/info_pc/${num}.png')] max-w-7xl`}
-            />
-          </SwiperSlide>
-        ))} */}
-      </Swiper>
+            },
+          }}
+          modules={[Mousewheel, Pagination]}
+          className="mySwiper"
+          // 슬라이드가 변경될 때마다 currentSlide 상태를 업데이트
+          onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}
+        >
+          {/* introData 배열을 map으로 돌며 각 슬라이드 생성 */}
+          {introData.map((data) => (
+            <SwiperSlide key={data.id} className="relative">
+              {/* 모바일 뷰 */}
+              <div className="lg:hidden absolute w-full h-full flex items-center justify-center">
+                <img src={data.mobileImage} alt={`Mobile slide ${data.id}`} />
+              </div>
+              {/* 데스크탑 뷰 */}
+              <div className="hidden lg:flex absolute w-full h-full items-center justify-center ">
+                <img src={data.desktopImage} alt={`Desktop slide ${data.id}`} />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 }
